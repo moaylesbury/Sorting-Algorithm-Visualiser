@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import Sorting from './Sorting/Sorting'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <p>Michael</p>
+    <div className="array_container">
+      <Sorting></Sorting>
     </div>
   );
 }
