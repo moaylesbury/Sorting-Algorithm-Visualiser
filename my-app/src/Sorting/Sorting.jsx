@@ -39,11 +39,11 @@ export default class Sort extends React.Component {
                 setTimeout(() => {
                     bars[i1].style.backgroundColor = "red"; 
                     bars[i2].style.backgroundColor = "black"; 
-                }, i * 5);
+                }, i * 2);
             } else {
                 setTimeout(() => {
                     bars[i1].style.height = `${i2}px`;
-                }, i * 5);
+                }, i * 2);
             }
             count++;
 
