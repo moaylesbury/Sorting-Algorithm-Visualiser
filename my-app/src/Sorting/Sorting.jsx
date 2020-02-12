@@ -30,6 +30,25 @@ export default class Sort extends React.Component {
 
     do_merge_sort() {
         const swaps = Algorithms.getSwaps(this.state.arr);
+        let count = 1;
+        for (let i = 0; i < swaps.length; i++) {
+            const bars = document.getElementsByClassName('array_disp');
+            const [i1, i2] = swaps[i];
+            
+            if (count % 2 != 0) {
+                setTimeout(() => {
+                    bars[i1].style.backgroundColor = "red"; 
+                    bars[i2].style.backgroundColor = "black"; 
+                }, i * 5);
+            } else {
+                setTimeout(() => {
+                    bars[i1].style.height = `${i2}px`;
+                }, i * 5);
+            }
+            count++;
+
+        }
+            
     }
     
     render() {

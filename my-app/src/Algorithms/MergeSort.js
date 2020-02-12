@@ -52,11 +52,13 @@ function merge_sort(arr, indexArr, swaps) {
             indexArr[k] = indexLeft[i];
             arr[k] = left[i];
             swaps.push([indexLeft[i], indexArr[k]]);
+            swaps.push([indexLeft[i], left[i]]);
             i++;
         }else{
             indexArr[k] = indexRight[j];
             arr[k] = right[j];
             swaps.push([indexRight[j], indexArr[k]]);
+            swaps.push([indexRight[j], right[j]]);
             j++;
         }
         k++;
@@ -68,6 +70,7 @@ function merge_sort(arr, indexArr, swaps) {
         indexArr[k] = indexLeft[i];
         arr[k] = left[i];
         swaps.push([indexLeft[i], indexArr[k]]);
+        swaps.push([indexLeft[i], left[i]]);
         i++;
         k++;
     }
@@ -75,6 +78,7 @@ function merge_sort(arr, indexArr, swaps) {
         indexArr[k] = indexRight[j];
         arr[k] = right[j];
         swaps.push([indexRight[j], indexArr[k]]);
+        swaps.push([indexRight[j], right[j]]);
         j++;
         k++;
     }
