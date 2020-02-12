@@ -1,11 +1,11 @@
 export function getAnimations(arr) {
     //const anim = [];
     //if (arr.length < 2) return arr;
-    merge_sort(arr);
+    merge_sort(arr, 0);
     return arr;
 }
 
-function merge_sort(arr){
+function merge_sort(arr, middleindex){
     //console.log(arr)
     //console.log(arr.length)
     // return if array is of length 1
@@ -17,8 +17,8 @@ function merge_sort(arr){
     const right = arr.slice(iMid);
     
     // recursively call merge_sort on each half of arr
-    merge_sort(left);
-    merge_sort(right);
+    merge_sort(left, iMid);
+    merge_sort(right, iMid);
     
     // preparing to sort
     let i, j, k;
@@ -28,9 +28,18 @@ function merge_sort(arr){
     while (i < left.length && j < right.length) {
 
         if (left[i] < right[j]) {
+            console.log("----------");
+            console.log(arr);
+            console.log(left);
+            console.log(left[i]);
+            console.log("mid");
+            console.log(iMid);
+            console.log("i");
+            console.log(i);
             arr[k] = left[i];
             i++;
         }else{
+            //console.log(j);
             arr[k] = right[j];
             j++;
         }
