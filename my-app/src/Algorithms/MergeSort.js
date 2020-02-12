@@ -1,46 +1,62 @@
-export function getAnimations(arr) {
-    //const anim = [];
-    //if (arr.length < 2) return arr;
-    merge_sort(arr, 0);
-    return arr;
+export function getSwaps(arr) {
+    const swaps = [];
+    if (arr.length < 2) return arr;
+
+    const indexArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        indexArr.push(i);
+    }
+
+    merge_sort(arr, indexArr, swaps);
+    return swaps;
 }
 
-function merge_sort(arr, middleindex){
-    //console.log(arr)
+function merge_sort(arr, indexArr, swaps) {
     //console.log(arr.length)
     // return if array is of length 1
     if (arr.length <= 1) return; 
 
     // splitting array into two halves
     const iMid = Math.floor(arr.length / 2);
+
     const left = arr.slice(0, iMid);
     const right = arr.slice(iMid);
+
+    const indexLeft = indexArr.slice(0, iMid);
+    const indexRight = indexArr.slice(iMid);
+    /*
+    console.log("----arr-----");
+    console.log(arr)
+    console.log(indexArr);
+    console.log("----left-----");
+    console.log(left);
+    console.log("----indexleft-----");
+    console.log(indexLeft);
+    console.log("---------------")
+    */
     
     // recursively call merge_sort on each half of arr
-    merge_sort(left, iMid);
-    merge_sort(right, iMid);
+    merge_sort(left, indexLeft, swaps);
+    merge_sort(right, indexRight, swaps);
     
     // preparing to sort
     let i, j, k;
     i = j = k = 0;
 
+
+
     // adding values in sorted order to array
     while (i < left.length && j < right.length) {
 
         if (left[i] < right[j]) {
-            console.log("----------");
-            console.log(arr);
-            console.log(left);
-            console.log(left[i]);
-            console.log("mid");
-            console.log(iMid);
-            console.log("i");
-            console.log(i);
+            indexArr[k] = indexLeft[i];
             arr[k] = left[i];
+            swaps.push([indexLeft[i], indexArr[k]]);
             i++;
         }else{
-            //console.log(j);
+            indexArr[k] = indexRight[j];
             arr[k] = right[j];
+            swaps.push([indexRight[j], indexArr[k]]);
             j++;
         }
         k++;
@@ -49,12 +65,16 @@ function merge_sort(arr, middleindex){
 
     // catching any values missed
     while (i < left.length) {
+        indexArr[k] = indexLeft[i];
         arr[k] = left[i];
+        swaps.push([indexLeft[i], indexArr[k]]);
         i++;
         k++;
     }
     while (j < right.length) {
+        indexArr[k] = indexRight[j];
         arr[k] = right[j];
+        swaps.push([indexRight[j], indexArr[k]]);
         j++;
         k++;
     }

@@ -29,11 +29,7 @@ export default class Sort extends React.Component {
     }
 
     do_merge_sort() {
-        console.log("unsorted");
-        console.log(this.state.arr);
-        const arr = Algorithms.getAnimations(this.state.arr);
-        console.log("sorted")
-        console.log(arr);
+        const swaps = Algorithms.getSwaps(this.state.arr);
     }
     
     render() {
