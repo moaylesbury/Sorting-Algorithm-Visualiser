@@ -48,19 +48,21 @@ function merge_sort(arr, indexArr, swaps) {
     // adding values in sorted order to array
     while (i < left.length && j < right.length) {
 
-        if (left[i] < right[j]) {
+        swaps.push([indexLeft[i], indexRight[j]]);
+
+        if (left[i] < right[j]) {            
+            swaps.push([k, left[i]]);
             indexArr[k] = indexLeft[i];
             arr[k] = left[i];
+
             //swaps.push([indexLeft[i], indexArr[k]]);
-            swaps.push([indexLeft[i], indexLeft[i]]);
-            swaps.push([indexLeft[i], left[indexLeft[i]]]);
+            
             i++;
         }else{
+            swaps.push([k, right[j]]);
             indexArr[k] = indexRight[j];
             arr[k] = right[j];
             //swaps.push([indexRight[j], indexArr[k]]);
-            swaps.push([indexRight[j], indexRight[j]]);
-            swaps.push([indexRight[j], right[indexRight[j]]]);
             j++;
         }
         k++;
@@ -69,20 +71,20 @@ function merge_sort(arr, indexArr, swaps) {
 
     // catching any values missed
     while (i < left.length) {
+        swaps.push([indexLeft[i], indexLeft[i]]);
+        swaps.push([k, left[i]]);
         indexArr[k] = indexLeft[i];
         arr[k] = left[i];
         //swaps.push([indexLeft[i], indexArr[k]]);
-        swaps.push([indexLeft[i], indexLeft[i]]);
-        swaps.push([indexLeft[i], left[indexLeft[i]]]);
         i++;
         k++;
     }
     while (j < right.length) {
+        swaps.push([indexRight[j], indexRight[j]]);
+        swaps.push([k, right[j]]);
         indexArr[k] = indexRight[j];
         arr[k] = right[j];
         //swaps.push([indexRight[j], indexArr[k]]);
-        swaps.push([indexRight[j], indexRight[j]]);
-        swaps.push([indexRight[j], right[indexRight[j]]]);
         j++;
         k++;
     }

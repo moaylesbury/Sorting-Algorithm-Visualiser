@@ -15,7 +15,7 @@ export default class Sort extends React.Component {
 
     newArray() {
         const arr = [];
-        for(let i = 0; i < 60; i++){//320
+        for(let i = 0; i < 320; i++){//320
 
             //While loop to make sure random number is greater than 20
             let rand = 0;
@@ -38,7 +38,7 @@ export default class Sort extends React.Component {
             if (count % 2 != 0) {
                 setTimeout(() => {
                     bars[i1].style.backgroundColor = "red"; 
-                    bars[i2].style.backgroundColor = "black"; 
+                    bars[i2].style.backgroundColor = "red"; 
                 }, i * 2);
             } else {
                 setTimeout(() => {
