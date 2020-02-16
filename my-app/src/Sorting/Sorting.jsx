@@ -1,6 +1,9 @@
 import React from 'react';
 import './Sorting.css'
-import * as Algorithms from '../Algorithms/MergeSort.js';
+import * as Merge from '../Algorithms/MergeSort.js';
+import * as Insertion from '../Algorithms/InsertionSort.js';
+import * as Quick from '../Algorithms/QuickSort.js';
+import * as Selection from '../Algorithms/SelectionSort.js';
 
 export default class Sort extends React.Component {
 
@@ -15,7 +18,7 @@ export default class Sort extends React.Component {
 
     newArray() {
         const arr = [];
-        for(let i = 0; i < 320; i++){//320
+        for(let i = 0; i < 60; i++){//320
 
             //While loop to make sure random number is greater than 20
             let rand = 0;
@@ -29,18 +32,23 @@ export default class Sort extends React.Component {
     }
 
     do_merge_sort() {
-        const swaps = Algorithms.getSwaps(this.state.arr);
-        let count = 1;
+        const swaps = Merge.getSwaps(this.state.arr);
+        let count = 0;
         for (let i = 0; i < swaps.length; i++) {
             const bars = document.getElementsByClassName('array_disp');
             const [i1, i2] = swaps[i];
             
-            if (count % 2 != 0) {
+            if (count % 3 == 0) {
                 setTimeout(() => {
                     bars[i1].style.backgroundColor = "red"; 
                     bars[i2].style.backgroundColor = "red"; 
                 }, i * 2);
-            } else {
+            } else if (count % 3 == 1) {
+                setTimeout(() => {
+                    bars[i1].style.backgroundColor = "turqoise"; 
+                    bars[i2].style.backgroundColor = "turquoise"; 
+                }, i * 2);
+            } else{
                 setTimeout(() => {
                     bars[i1].style.height = `${i2}px`;
                 }, i * 2);
@@ -49,6 +57,50 @@ export default class Sort extends React.Component {
 
         }
             
+    }
+
+    do_insertion_sort() {
+        const selsort = Insertion.getSwaps(this.state.arr);
+        const sorted = this.state.arr.sort(function(a, b){return a-b});
+        console.log(selsort);
+        console.log(sorted);
+        console.log(selsort == sorted);
+    }
+
+    do_quick_sort() {
+        const swaps = Quick.getSwaps(this.state.arr);
+        let count = 0;
+        for (let i = 0; i < swaps.length; i++) {
+            const bars = document.getElementsByClassName('array_disp');
+            const [i1, i2] = swaps[i];
+            
+            if (count % 3 == 0) {
+                setTimeout(() => {
+                    bars[i1].style.backgroundColor = "red"; 
+                    bars[i2].style.backgroundColor = "red"; 
+                }, i * 2);
+            } else if (count % 3 == 1) {
+                setTimeout(() => {
+                    bars[i1].style.backgroundColor = "turqoise"; 
+                    bars[i2].style.backgroundColor = "turquoise"; 
+                }, i * 2);
+            } else{
+                setTimeout(() => {
+                    bars[i1].style.height = `${i2}px`;
+                }, i * 2);
+            }
+            count++;
+
+        }
+            
+    }
+
+    do_selection_sort() {
+        const selsort = Selection.getSwaps(this.state.arr);
+        const sorted = this.state.arr.sort(function(a, b){return a-b});
+        console.log(selsort);
+        console.log(sorted);
+        console.log(selsort == sorted);
     }
     
     render() {
@@ -66,10 +118,10 @@ export default class Sort extends React.Component {
 
             <button onClick={() => this.newArray()}>New Array</button>
             <button onClick={() => this.do_merge_sort()}>Merge Sort</button>
-            <button>Quick Sort</button>
-            <button>Insertion Sort</button>
-            <button>Selection Sort</button>
-            <button>Pancake Sort</button>
+            <button onClick={() => this.do_quick_sort()}>Quick Sort</button> 
+            <button onClick={() => this.do_insertion_sort()}>Insertion Sort</button>
+            <button onClick={() => this.do_selection_sort()}>Selection Sort</button>
+            <button onClick={() => this.do_pancake_sort()}>Pancake Sort</button>
 
 
             </>

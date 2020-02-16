@@ -69,9 +69,9 @@ def quick_sort(arr):
         if arr[i] <= pivot:
             smaller_index += 1
             arr[i], arr[smaller_index] = arr[smaller_index], arr[i]
-    print(arr)
     quick_sort(arr[:smaller_index-1])
     quick_sort(arr[smaller_index+1:])
+    return arr
 
 
 def pancake_sort(arr):
@@ -84,5 +84,5 @@ def pancake_sort(arr):
         curr_size -= 1
     print(arr)
 
-
-quick_sort(lst())
+# quick sort doesn't work
+print(quick_sort(lst()))

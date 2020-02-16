@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9efbfab-f899-48fe-82f5-0e6749176152" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sort.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sort.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my-app/src/Algorithms/InsertionSort.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../my-app/src/Algorithms/InsertionSort.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my-app/src/Algorithms/MergeSort.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../my-app/src/Algorithms/MergeSort.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../my-app/src/Sorting/Sorting.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../my-app/src/Sorting/Sorting.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,9 +137,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580818651311" />
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1581112033809">
+    <state x="399" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1581864430132">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1581112033809" />
+    <state x="399" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1581864430132" />
   </component>
 </project>

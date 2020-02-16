@@ -24,16 +24,6 @@ function merge_sort(arr, indexArr, swaps) {
 
     const indexLeft = indexArr.slice(0, iMid);
     const indexRight = indexArr.slice(iMid);
-    /*
-    console.log("----arr-----");
-    console.log(arr)
-    console.log(indexArr);
-    console.log("----left-----");
-    console.log(left);
-    console.log("----indexleft-----");
-    console.log(indexLeft);
-    console.log("---------------")
-    */
     
     // recursively call merge_sort on each half of arr
     merge_sort(left, indexLeft, swaps);
@@ -48,6 +38,7 @@ function merge_sort(arr, indexArr, swaps) {
     // adding values in sorted order to array
     while (i < left.length && j < right.length) {
 
+        swaps.push([indexLeft[i], indexRight[j]]);
         swaps.push([indexLeft[i], indexRight[j]]);
 
         if (left[i] < right[j]) {            
@@ -72,6 +63,7 @@ function merge_sort(arr, indexArr, swaps) {
     // catching any values missed
     while (i < left.length) {
         swaps.push([indexLeft[i], indexLeft[i]]);
+        swaps.push([indexLeft[i], indexLeft[i]]);
         swaps.push([k, left[i]]);
         indexArr[k] = indexLeft[i];
         arr[k] = left[i];
@@ -80,6 +72,7 @@ function merge_sort(arr, indexArr, swaps) {
         k++;
     }
     while (j < right.length) {
+        swaps.push([indexRight[j], indexRight[j]]);
         swaps.push([indexRight[j], indexRight[j]]);
         swaps.push([k, right[j]]);
         indexArr[k] = indexRight[j];
