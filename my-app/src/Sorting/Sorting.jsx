@@ -85,11 +85,16 @@ export default class Sort extends React.Component {
     }
 
     do_pancake_sort() {
-        const selsort = Pancake.getSwaps(this.state.arr);
-        const sorted = this.state.arr.sort(function(a, b){return a-b});
-        console.log(selsort);
-        console.log(sorted);
-        console.log(selsort == sorted);
+    }
+
+    are_sorted(arr) {
+        let sorted = true;
+        let sortedArr = arr.sort(function(a, b){return a-b});
+        if (arr.length != sortedArr.length) sorted = false;
+        for (let i = 0; i < arr.length; i++) {
+            if (sortedArr[i] != arr[i]) sorted = false;
+        }
+        return sorted
     }
     
     render() {
