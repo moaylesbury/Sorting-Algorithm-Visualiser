@@ -1,18 +1,27 @@
 export function getSwaps(arr){
-    const swaps = [];
+    quick_sort(arr);
+    return arr;
+}
+
+function quick_sort(arr) {
+    if (arr.length <= 1) {
+        return;
+    }
+
+    let partitionIndex = parition(arr);
+
+    quick_sort(arr.slice(0, partitionIndex));
+    quick_sort(arr.slice(partitionIndex, arr.length));
+}
+
+function parition(arr) {
     let pivot = arr[arr.length - 1];
-    let temp = 0;
     let smaller_index = -1;
     for (let i = 0; i < arr.length; i++){
         if (arr[i] <= pivot) {
             smaller_index++;
-            swaps.push([i, smaller_index]);
-            swaps.push([i, smaller_index]);
-            swaps.push([smaller_index, arr[smaller_index]]);
-            temp = arr[i];
-            arr[i] = arr[smaller_index];
-            arr[smaller_index] = temp;
+            [arr[i], arr[smaller_index]] = [arr[smaller_index], arr[i]]
         }
     }
-    return swaps;
+    return smaller_index;
 }

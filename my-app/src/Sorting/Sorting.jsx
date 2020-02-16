@@ -4,6 +4,7 @@ import * as Merge from '../Algorithms/MergeSort.js';
 import * as Insertion from '../Algorithms/InsertionSort.js';
 import * as Quick from '../Algorithms/QuickSort.js';
 import * as Selection from '../Algorithms/SelectionSort.js';
+import * as Pancake from '../Algorithms/PancakeSort.js';
 
 export default class Sort extends React.Component {
 
@@ -68,35 +69,23 @@ export default class Sort extends React.Component {
     }
 
     do_quick_sort() {
-        const swaps = Quick.getSwaps(this.state.arr);
-        let count = 0;
-        for (let i = 0; i < swaps.length; i++) {
-            const bars = document.getElementsByClassName('array_disp');
-            const [i1, i2] = swaps[i];
-            
-            if (count % 3 == 0) {
-                setTimeout(() => {
-                    bars[i1].style.backgroundColor = "red"; 
-                    bars[i2].style.backgroundColor = "red"; 
-                }, i * 2);
-            } else if (count % 3 == 1) {
-                setTimeout(() => {
-                    bars[i1].style.backgroundColor = "turqoise"; 
-                    bars[i2].style.backgroundColor = "turquoise"; 
-                }, i * 2);
-            } else{
-                setTimeout(() => {
-                    bars[i1].style.height = `${i2}px`;
-                }, i * 2);
-            }
-            count++;
-
-        }
-            
+        const selsort = Quick.getSwaps(this.state.arr);
+        const sorted = this.state.arr.sort(function(a, b){return a-b});
+        console.log(selsort);
+        console.log(sorted);
+        console.log(selsort == sorted); 
     }
 
     do_selection_sort() {
         const selsort = Selection.getSwaps(this.state.arr);
+        const sorted = this.state.arr.sort(function(a, b){return a-b});
+        console.log(selsort);
+        console.log(sorted);
+        console.log(selsort == sorted);
+    }
+
+    do_pancake_sort() {
+        const selsort = Pancake.getSwaps(this.state.arr);
         const sorted = this.state.arr.sort(function(a, b){return a-b});
         console.log(selsort);
         console.log(sorted);
